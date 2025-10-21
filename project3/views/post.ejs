@@ -1,0 +1,56 @@
+<html>
+
+  <head>
+    <title></title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- linking style.css and main.js to here -->
+  </head>
+  <body>
+    <div class="phaseOneTitle">
+      <h1>Post a Bounty!</h1>
+    </div>
+    <div class="centeringDiv">
+      <div class="phaseOneBorderBox centerColumn">
+        <div class="phaseOneNewsPanel">
+          
+          <p>Please include: Your name, request, and payment.</p>
+            <a href="/homepage"><---back to home</a>
+            <p></p>
+          <div class="phaseOneBountyBoard">
+            <div class="form">
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+              <input
+                type="text"
+                name="status"
+                placeholder="Bounty details..."
+              />
+              <input type="file" name="bountyThumbnail" />
+              <input type="submit" value="Post Bounty!" />
+            </form>
+          </div>
+          <h2>Previous Posts</h2>
+            <%for(let p of allPosts){%>
+    <div class="status">
+      <p><%=p.text%></p>
+    </div>
+    <div class="time">
+      <p><%=p.time%></p>
+    </div>
+
+    <div class="image">
+      <% if (p.imgSrc) { %>
+        <img src="<%= p.imgSrc %>" alt="post image" />
+      <% } %>
+    </div>
+    <%}%>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+        
+    </body>
+</html>

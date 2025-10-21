@@ -1,0 +1,53 @@
+<html>
+
+<head>
+  <title>Homepage</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- linking style.css and main.js to here -->
+</head>
+
+<body>
+  <div class="phaseOneTitle">
+    <h1>Imaginary Club</h1>
+  </div>
+  <div class="centeringDiv">
+    <div class="phaseOneBorderBox leftColumn">
+      <div class="phaseOneBountyTitle">
+        <h2>Bounty Board</h2>
+        <a href ="/post">Post a bounty</a>
+      </div>
+      <div class="phaseOneBountyBoard">
+        <!-- This is rendering posts -->
+        <% if (typeof allPosts !== 'undefined' && allPosts.length > 0) { %>
+        <div class="postsList">
+          <% for (let p of allPosts) { %>
+          <div class="post">
+            <div class="post-text"><%= p.text %></div>
+            <div class="post-time"><%= p.time %></div>
+            <% if (p.imgSrc) { %>
+            <div class="post-image"><img src="<%= p.imgSrc %>" alt="post image" /></div>
+            <% } %>
+          </div>
+          <% } %>
+        </div>
+        <% } else { %>
+        <div class="no-posts">No Bounties Posted</div>
+        <% } %>
+      </div>
+    </div>
+  
+  <div class="phaseOneBorderBox centerColumn">
+    <div class="phaseOneNewsPanel">
+        <h2>Next Meeting! Halloween special!</h2>
+        <p>Hello Imagineers! Pang here! Are you excited for Haloween? Come to the Imagination Club on Friday and celebrate the spookiest day of the year!</p>
+        <p>It'll be in the same room as always. Feel free to dress up: I know I will. Bring any bounties that you haven't ddelivered yet. See you there!</p>
+    </div>
+
+    <div class="phaseOneBorderBox rightColumn">
+        <h2>Members</h2>
+    </div>
+  </div>
+  </div>
+</body>
+
+</html>

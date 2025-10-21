@@ -1,0 +1,154 @@
+html {
+  background-color: rgb(13, 17, 29);
+}
+
+h1 {
+  color: rgb(238, 39, 162);
+  text-align: center;
+  font-size: 55px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h2 {
+  color: rgb(228, 87, 174);
+  text-align: center;
+  font-size: 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+p {
+  color: darkmagenta;
+}
+
+.phaseOneBorderBox {
+  border: 12px solid rgb(229, 147, 181);
+  margin: 15px;
+    background-color: rgb(248, 234, 250);
+
+}
+
+.phaseOneTitle {
+  border: 10px solid rgb(173, 73, 128);
+  padding: auto;
+  margin: 5px;
+  height: 150px;
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  background-color: rgb(248, 234, 250);
+}
+.phaseOneBountyTitle {
+  margin: 8px;
+  background-color: rgb(248, 234, 250);
+  border: 5px solid rgb(238, 39, 162);
+  height: fit-content;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.phaseOneBountyBoard {
+  background: rgb(255, 253, 251);
+  border: 5px solid rgb(238, 39, 162);
+  height: fit-content;
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+}
+.phaseOneNewsPanel {
+  background: rgb(255, 253, 251);
+  border: 5px solid rgb(238, 39, 162);
+  height: fit-content;
+}
+
+.phaseOneStickyNote {
+  border: 3px pink;
+}
+
+.phaseOneAnnieBox {
+  border: 10px solid orchid;
+}
+
+.phaseOneAnnieSpeech {
+  border: 5px solid salmon;
+}
+.centeringDiv {
+  margin-left: 100px;
+  margin-right: 100px;
+  text-align: center;
+}
+.centerColumn {
+  width: 600px;
+  height: 900px;
+  position: absolute;
+  top:300px;
+  right: 630px;
+  
+}
+.rightColumn {
+  width: 25%;
+  width: 280px;
+  height: 900px;
+  position: absolute;
+  top:-27px;
+  right: -350px;;
+}
+
+.leftColumn {
+  width: 25%;
+  width: 280px;
+  height: 900px;
+  position: absolute;
+  top:300px;
+  left: 298px;
+}
+
+
+/* this is for the disguise: */
+.disguiseTitle {
+  color: rgb(0, 0, 0);
+  text-align: center;
+  
+}
+.disguiseP {
+  color: rgb(0, 0, 0);
+}
+
+.disguiseBorderBox {
+  border: 12px solid rgb(248, 248, 248);
+  margin: 15px;
+    background-color: rgb(248, 234, 250);
+
+}
+
+.disguiseTitleBox {
+  border: 10px solid rgb(233, 233, 233);
+  padding: auto;
+  margin: 5px;
+  height: 150px;
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  background-color: rgb(255, 255, 255);
+}
+.disguiseBountyTitle {
+  margin: 8px;
+  background-color: rgb(255, 255, 255);
+  border: 5px solid rgb(173, 173, 173);
+  height: fit-content;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.disguiseBountyBoard {
+  background: rgb(255, 253, 251);
+  border: 5px solid #ffffff;
+  height: fit-content;
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+}
+.disguiseNewsPanel {
+  background: rgb(255, 255, 255);
+  border: 5px solid rgb(214, 214, 214);
+  height: fit-content;
+}
