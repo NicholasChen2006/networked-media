@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>CUSTOM FORM 💖</title>
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body>
+        <form action="/post" method="POST" enctype="multipart/form-data">
+            <textarea name="text" placeholder="this is the custom input box"></textarea>
+            <input type="submit" value="add to database">
+        </form>
+
+        <div id="blue" class="posts">
+            <% for(let post of posts){ %>
+                <span> <%= post.date %> </span>
+                <p> 
+                    <%= post.text %>
+                </p>
+            <% } %>
+        </div>
+    </body>
+</html>
