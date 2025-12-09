@@ -1,0 +1,2 @@
+{"username":"sam","fullname":"sam","password":"$2b$10$QoyJHvYNHDI7L4Kh1d12K.a2U6XCd.MP9n1cq.E8DFerAvlkliQZm","_id":"GoG8uzcWoyK0J5i0"}
+{"username":"pangerdoodlington","fullname":"Nicholas Chennington","password":"$2b$10$9XbHPDZTqiZ5pMeA.ye2Rehk1H7LaWaMwvVZri6crusbm48iG76jm","_id":"KxYPIChmr876hx1r"}

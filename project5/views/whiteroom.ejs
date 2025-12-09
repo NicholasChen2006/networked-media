@@ -1,0 +1,19 @@
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<script>
+  if (!sessionStorage.getItem('reloadedOnce')) {
+    sessionStorage.setItem('reloadedOnce', 'true');
+    window.location.reload();
+  } else {
+    sessionStorage.removeItem('reloadedOnce');
+  }
+</script>
+
+<body>
+    <form method="POST" action="/close-eyes">
+            <input type="text" name="thought" placeholder="">
+            <div><input type="submit" name="think" value="" class="submit-btn"></div>      
+        </form>
+</body>
+<!-- Don't forget to say good night. -->
