@@ -55,15 +55,16 @@ app.use(urlEncodedParser);
 app.set("view engine", "ejs");
 
 //--------------------project5 routes begin below-------------------------
-app.get('/start', (req, res)=>{
+app.get('/', (req, res)=>{
+  res.redirect('/start')
+})
 
+app.get('/start', (req, res)=>{
   if (req.cookies.hasViewedPage === 'true'){
-    
     res.redirect('/whiteroom')
   } else{
-    let intrusiveThought = ''
     res.cookie('hasViewedPage', 'true', {expires: new Date(Date.now() + 100000000)})
-    res.render('start.ejs')
+  res.render('start.ejs')
   }
 })
 
@@ -71,35 +72,48 @@ app.get('/start', (req, res)=>{
 app.get('/whiteroom', (req, res)=>{
   //this prevents browser from caching
   res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
-  res.render('whiteroom.ejs')
-})
+res.render('whiteroom.ejs', { 
+      cookies: req.cookies
+  });})
 
 app.get('/greenroom', (req, res)=>{
   //this prevents browser from caching
   res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+  res.cookie('hasViewedgreenroom', 'true', {expires: new Date(Date.now() + 100000000)})
   res.render('greenroom.ejs')
+
 })
 
-app.post('/close-eyes', (req, res)=>{
-  let progressAttempt = {
-    thought: req.body.thought
+app.get('/blackroom', (req, res)=>{
+  //Generates number
+  const randomNum = Math.floor(Math.random() * 10000);
+  console.log(randomNum);
+  req.session.blackroomSecret = randomNum;
+  res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+  res.cookie('hasViewedblackroom', 'true', {expires: new Date(Date.now() + 100000000)})
+  res.render('blackroom.ejs', { 
+      randomNum: randomNum 
+  });
+})
+app.post('/verify', (req, res) => {
+  const currentHour = new Date().getHours();
+  const input1 = parseInt(req.body.input1, 10);
+  const input2 = parseInt(req.body.input2, 10);
+  const correctSecret = req.session.blackroomSecret;
+  if (input1 === currentHour && input2 === correctSecret) {
+    res.send('YAY!!! Email nxc2006@nyu.edu to get out of this sinkhole.');
+  } else {
+    console.log('Inputs were:', input1, input2, 'Expected Secret:', correctSecret);
+    res.render('whiteroom.ejs', { cookies: req.cookies  });
   }
-      if(progressAttempt.thought === 'good night'){
-        res.redirect('/greenroom');
-      } else{
-        res.redirect('/whiteroom');
-      }
-    })
+});
 
+app.post('/blackroom-number', (req, res) => {
+    const randomNum = Math.floor(Math.random() * 10000);
+    console.log(randomNum);
+    
+});
 
-
-
-/*********************************************
-server listener for when requests are made 
-to the server
-- we don't really need to modify this
-- needs to go at the end
-*********************************************/
 app.listen(6001, () => {
   console.log("server started on port 6001");
 });
