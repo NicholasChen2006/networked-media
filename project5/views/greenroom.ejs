@@ -1,19 +1,86 @@
 <head>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            transition: background-color 0.2s ease; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .clock-text {
+            font-size: 3rem;
+            font-family: monospace, sans-serif;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
 </head>
+
 <script>
-  if (!sessionStorage.getItem('reloadedOnce')) {
-    sessionStorage.setItem('reloadedOnce', 'true');
-    window.location.reload();
-  } else {
-    sessionStorage.removeItem('reloadedOnce');
-  }
+    if (!sessionStorage.getItem('reloadedOnce')) {
+        sessionStorage.setItem('reloadedOnce', 'true');
+        window.location.reload();
+    } else {
+        sessionStorage.removeItem('reloadedOnce');
+    }
+
+    let temp;
+    let clock;
+    // 24 hour colors
+    const hourColors = [
+      "#020111", "#020111", "#030218", "#050426", "#070736", "#1d1d4f", // 0-5
+      "#4a3b69", "#ff9a76", "#ffbf87", "#87ceeb", "#6ec5ff", "#4cb5ff", // 6-11
+      "#1ca3ec", "#1ca3ec", "#4cb5ff", "#6ec5ff", "#87ceeb", "#ffbf87", // 12-17       
+      "#ff9a76", "#4a3b69", "#1d1d4f", "#070736", "#050426", "#030218"  // 18-23
+    ];
+
+    window.onload = () => {
+        timeFunction();
+        setInterval(timeFunction, 1000);
+        clock = document.createElement("p");
+        clock.textContent = temp;
+        document.body.appendChild(clock);
+    };
+
+    const timeFunction = () => {
+        const time = new Date();
+        const hour = time.getHours();
+        const minute = time.getMinutes();
+        const second = time.getSeconds();
+
+        //changing bkg color
+        document.body.style.backgroundColor = hourColors[hour];
+        //clock text
+        temp = String(hour % 12);
+        if (temp === "0") {
+            temp = "12";
+        }
+        temp += (minute < 10 ? ":0" : ":") + minute;
+        temp += (second < 10 ? ":0" : ":") + second;
+        temp += hour >= 12 ? " PM" : " AM";
+
+        if (clock) {
+            clock.textContent = temp;
+            
+            //text white if the background is dark or black if background is light
+            if (hour < 6 || hour > 18) {
+                clock.style.color = "white";
+            } else {
+                clock.style.color = "black";
+            }
+        }
+    };
 </script>
 
 <body>
-    <form method="POST" action="/look">
-            <input type="text" name="thought" placeholder="">
-            <div><input type="submit" name="think" value="" class="submit-btn"></div>      
-        </form>
+    <button onclick="location.href='/whiteroom'" id="left-door">
+<pre>
+____
+|   |
+|  .|
+|___|
+</pre></button>
 </body>
-<!-- What do you see? -->
