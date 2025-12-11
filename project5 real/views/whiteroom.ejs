@@ -1,0 +1,55 @@
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<!-- reload page once -->
+<script>
+  if (!sessionStorage.getItem('reloadedOnce')) {
+    sessionStorage.setItem('reloadedOnce', 'true');
+    window.location.reload();
+  } else {
+    sessionStorage.removeItem('reloadedOnce');
+  }
+  //if all rooms seen, promtps appear
+  if (req.cookies.hasViewedblackroom !== 'true', req.cookies.hasViewedgreenroom !== 'true', req.cookies.hasViewedredroom !== 'true', req.cookies.hasViewedblackroom !== 'true'){
+    
+  }
+</script>
+
+<body id="whiteroom-body">
+<button onclick="location.href='/greenroom'" id="left-door">
+<pre>
+____
+|   |
+|  .|
+|___|
+</pre></button>
+
+<button onclick="location.href='/blackroom'" id="middle-door"><pre>
+____
+|   |
+|  .|
+|___|
+</pre></button>
+
+<% if (typeof cookies !== 'undefined' && 
+           cookies.hasViewedgreenroom === 'true' && 
+           cookies.hasViewedblackroom === 'true') { %>
+        
+        <div id="secret-inputs" style="margin-top: 20px; text-align: center;">
+            <form method="POST" action="/verify">
+                <input type="text" name="input1" placeholder="">
+                <input type="text" name="input2" placeholder="">
+                <br><br>
+                <button type="submit"><pre>___
+|   |
+|  .|
+|___|
+</pre></button>
+            </form>
+        </div>
+
+    <% } %>
+
+<pre id="whiteroom-stuff">
+</pre>
+</body>

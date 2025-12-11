@@ -1,0 +1,60 @@
+html{
+background-color: rgb(19, 25, 26);
+}
+h1{
+color: white;
+}
+h2{
+color: white;
+}
+p{
+color: white;
+}
+pre{
+color: white;
+font-size: large;
+}
+.center-align {
+  text-align: center;
+}
+
+button {
+  background-color: rgb(62, 57, 57);
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+}
+
+
+#whiteroom-body {
+  background-color: rgb(239, 239, 239);
+  margin: 30px;
+  padding: 20px;
+  
+}
+#whiteroom-stuff {
+  color: black;
+}
+#left-door {
+  position: absolute;
+  left: 50;
+}
+#right-door {
+  position: absolute;
+  right: 50;
+}
+#middle-door {
+  position: absolute;
+  right: 50%;
+  bottom: 10%;
+  margin: 0;
+}
+
+#hiddenOffScreen{
+    position: absolute;
+    right: -1000%;
+}
